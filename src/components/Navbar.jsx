@@ -5,6 +5,7 @@ import bell_icon from "../assets/bell_icon.svg";
 import profile_img from "../assets/profile_img.png";
 import caret_icon from "../assets/caret_icon.svg";
 import { useRef, useState, useEffect } from "react";
+import { logout } from "../firebase";
 
 const Navbar = () => {
   const navRef = useRef();
@@ -61,7 +62,14 @@ const Navbar = () => {
 
           {isOpen && (
             <div className="absolute top-[100%] right-0 w-max px-[22px] py-[18px] rounded-[2px] underline z-10 bg-gray-800 ">
-              <p className="text-[13px] cursor-pointer">Sign Out of Netflix</p>
+              <p
+                onClick={() => {
+                  logout();
+                }}
+                className="text-[13px] cursor-pointer"
+              >
+                Sign Out of Netflix
+              </p>
             </div>
           )}
         </div>
